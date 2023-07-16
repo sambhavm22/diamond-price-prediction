@@ -84,40 +84,28 @@ class DataTransformation:
 
             input_feature_test_df = test_df.drop(columns=drop_column, axis=1)
             target_feature_test_df = test_df[target_column]
-            print("________________------")
+
             logging.info("Applying preprocessing object on training and testing datasets.")
             input_feature_train_arr = preprocessing_obj.fit_transform(input_feature_train_df)
             input_feature_test_arr = preprocessing_obj.transform(input_feature_test_df)
-            print("________________")
 
             logging.info("concating input array and target")
-            train_arr = np.c_[input_feature_train_arr, np.array(target_feature_train_df)]
-            print("________________7877778867896789")
+            train_arr = np.c_[input_feature_train_arr, np.array(target_feature_train_df)] 
             test_arr = np.c_[input_feature_test_arr, np.array(target_feature_test_df)]
 
-            print(self.data_transformation_config.preprocessor_obj_file_path,preprocessing_obj)
-            print("_____________________________________________")
             logging.info("saving preprocessor.pkl file")
-            print(self.data_transformation_config.preprocessor_obj_file_path,preprocessing_obj)
-            print("_____________________________________________")
+
             save_object(
                         file_path=self.data_transformation_config.preprocessor_obj_file_path,
                         obj=preprocessing_obj
                         )
             
-            print(
-                train_arr,
-                test_arr,
-                self.data_transformation_config.preprocessor_obj_file_path
-            )
-            print("___________________________________")
             return (
                 train_arr,
                 test_arr,
                 self.data_transformation_config.preprocessor_obj_file_path
             )
         
-            
         except Exception as e:
             raise CustomException(e,sys)   
 

@@ -60,6 +60,8 @@ if __name__ == "__main__":
     train_data, test_data = data_ingestion.initiate_data_ingestion()        
 
     data_transformation = DataTransformation()
-    _,_,_=data_transformation.initiate_data_transformation(train_data, test_data)
+    data_transformation.initiate_data_transformation(train_data, test_data)
+
+
 
 
