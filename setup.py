@@ -14,8 +14,8 @@ def get_requirements()->List[str]:
     return requirement_list
 
 setup(
-    name="sensor",
-    version="0.0.1",
+    name="diamond_price_prediction",
+    version="0.0.3",
     author="sambhav",
     author_email="sambhavm22@gmail.com",
     packages=find_packages(),
